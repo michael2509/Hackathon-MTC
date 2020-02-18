@@ -1,12 +1,12 @@
 package fr.formation.hackatonmtc.entities;
 
 public class Caisse {
-    static private int id = 0;
+    private int numero;
     private int velocite;
-    private Queue queue = null;
+    private Queue queue;
 
-    public Caisse(int velocite) {
-        this.id++;
+    public Caisse(int numero, int velocite) {
+        this.numero = numero;
         this.velocite = velocite;
     }
 
@@ -16,5 +16,13 @@ public class Caisse {
 
     public void setVelocite(int velocite) {
         this.velocite = velocite;
+    }
+
+    public Queue getQueue() {
+        return queue;
+    }
+
+    public void setQueue(Queue queue) {
+        this.queue = queue;
     }
 }

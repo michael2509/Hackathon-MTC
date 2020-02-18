@@ -1,11 +1,11 @@
 package fr.formation.hackatonmtc.entities;
 
 public class Client {
-    static private int id = 0;
+    private int numero;
     private int nbArticles;
 
-    public Client(int nbArticles) {
-        this.id++;
+    public Client(int numero, int nbArticles) {
+        this.numero = numero;
         this.nbArticles = nbArticles;
     }
 

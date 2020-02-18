@@ -1,35 +1,31 @@
 package fr.formation.hackatonmtc.entities;
 
 public class Magasin {
-    private int[] nbArticlesByClient;
+    private int[] nbArticlesParClient;
     private int[] velocite;
 
     private Client[] clients;
     private Caisse[] caisses;
 
-    public Magasin(int[] nbArticlesByClient, int[] velocites) {
-        this.nbArticlesByClient = nbArticlesByClient;
+    public Magasin(int[] nbArticlesParClient, int[] velocites) {
+        this.nbArticlesParClient = nbArticlesParClient;
         this.velocite = velocite;
 
-        for (int i = 0; i < nbArticlesByClient.length ; i++) {
-            clients[i] = new Client(nbArticlesByClient[i]);
+        for (int i = 0; i < nbArticlesParClient.length ; i++) {
+            clients[i] = new Client(i++, nbArticlesParClient[i]);
         }
 
         for (int i = 0; i < velocite.length ; i++) {
-            caisses[i] = new Caisse(velocites[i]);
+            caisses[i] = new Caisse(i++, velocites[i]);
         }
-
-
-
-
     }
 
-    public int[] getNbArticlesByClient() {
-        return nbArticlesByClient;
+    public int[] getNbArticlesParClient() {
+        return nbArticlesParClient;
     }
 
-    public void setNbArticlesByClient(int[] nbArticlesByClient) {
-        this.nbArticlesByClient = nbArticlesByClient;
+    public void setNbArticlesParClient(int[] nbArticlesParClient) {
+        this.nbArticlesParClient = nbArticlesParClient;
     }
 
     public int[] getVelocite() {
@@ -41,8 +37,21 @@ public class Magasin {
     }
 
     private Client[] dicpatchClient() {
-        for () {
+        int capaciteTotale = 0;
+        int articlesTotal = 0;
 
+        for (Caisse caisse:caisses) {
+            capaciteTotale += caisse.getVelocite();
+        }
+        for (Client client : clients) {
+            articlesTotal += client.getNbArticles();
+        }
+        for (Client client : clients) {
+            for (Caisse caisse : caisses) {
+                if (caisse.getVelocite() <  client.getNbArticles()) {
+
+                }
+            }
         }
     }
 }
